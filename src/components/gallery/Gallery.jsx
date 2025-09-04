@@ -1,4 +1,8 @@
 import React from 'react';
+import Slider from 'react-slick'; // Import Slider component
+import "slick-carousel/slick/slick.css"; // Import slick-carousel CSS
+import "slick-carousel/slick/slick-theme.css"; // Import slick-carousel theme CSS
+import '../gallery/Gallery.css'; // Import existing Gallery CSS
 
 const Gallery = () => {
   // Gallery data with image paths and descriptions
@@ -77,12 +81,41 @@ const Gallery = () => {
     }
   ];
 
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 1000, // Faster transition speed
+    slidesToShow: 3, // Show 3 slides at a time
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 1000, // Faster autoplay speed
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1
+        }
+      }
+    ]
+  };
+
   return (
     <div className="gallery-container">
       <h2 className="gallery-title">Ujjain Kumbh Mela Gallery</h2>
       <p className="gallery-subtitle">Experience the divine atmosphere of the world's largest spiritual gathering</p>
       
-      <div className="gallery-grid">
+      <Slider {...settings}>
         {galleryItems.map((item) => (
           <div key={item.id} className="gallery-item">
             <img 
@@ -91,13 +124,13 @@ const Gallery = () => {
               className="gallery-image"
               onError={(e) => { e.target.src = '/img/imhq.png'; }}
             />
-            <div className="gallery-caption">
+            <div className="-captiongallery">
               <h3>{item.title}</h3>
               <p>{item.description}</p>
             </div>
           </div>
         ))}
-      </div>
+      </Slider>
     </div>
   );
 };
