@@ -55,7 +55,7 @@ const Navbar = ({ activeTab, setActiveTab }) => {
       </nav>
 
       {/* Mobile Bottom Bar */}
-      <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-background/card border-t border-gray-200 shadow-lg">
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-background/card border-t border-gray-200 shadow-lg z-[1001]">
         <div className="grid grid-cols-4">
           {navItems.map((item) => (
             <button

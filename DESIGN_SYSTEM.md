@@ -114,4 +114,18 @@
 - `.card-hover`: For hover effects on cards
 - `.transition-all`: For smooth transitions
 
+## Components
+
+### Hero Section
+The hero section features a gradient background with decorative images and call-to-action buttons. It serves as the main entry point for users to explore the application's features.
+
+### Gallery
+The gallery component displays images in a responsive grid layout. It includes both a simple grid view and a more detailed card view with captions.
+
+### Key Information Cards
+These cards display important information in a visually appealing way with colored borders and background images. Each card focuses on a specific category of information.
+
+### Services Section
+This section showcases the main services offered by the application with iconography and clear calls to action.
+
 To modify the design system, simply update the values in `tailwind.config.js` and the changes will be applied throughout the application.
