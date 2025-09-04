@@ -1,0 +1,206 @@
+@import "tailwindcss";
+
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  /* Removed overflow: hidden to enable scrolling */
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #213547;
+  background-color: #FFF8F2;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px; /* Minimum 16px for body text on mobile */
+}
+
+a {
+  font-weight: 500;
+  color: #B94E2A; /* primary color */
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #D7263D; /* danger color */
+}
+
+h1 {
+  font-size: 2.5rem;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.75em 1.5em;
+  font-size: 1.1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #B94E2A; /* primary color */
+  color: white;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+button:hover {
+  background-color: #D7263D; /* danger color */
+  transform: translateY(-2px);
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+  outline-color: #2F9E44; /* success color for high contrast */
+}
+
+/* Ensure the root element takes full height but allows scrolling */
+#root {
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Fix for map container */
+.map-container {
+  height: 100%;
+  width: 100%;
+}
+
+/* High contrast focus styles for accessibility */
+*:focus {
+  outline: 2px solid #2F9E44; /* success color */
+  outline-offset: 2px;
+}
+
+/* Responsive typography */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+/* Map overlay styles */
+.map-overlay-low {
+  background-color: rgba(47, 158, 68, 0.7); /* density.low with transparency */
+}
+
+.map-overlay-medium {
+  background-color: rgba(246, 200, 95, 0.7); /* density.medium with transparency */
+}
+
+.map-overlay-high {
+  background-color: rgba(215, 38, 61, 0.7); /* density.high with transparency */
+}
+
+/* SOS FAB button - sticky bottom-right on mobile; top-right on desktop */
+.sos-fab {
+  position: fixed;
+  bottom: 6rem;
+  right: 1.5rem;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-color: #D7263D; /* danger color */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sos-fab:hover {
+  background-color: #c01f36; /* danger color darker */
+  transform: scale(1.05);
+}
+
+.sos-fab:focus {
+  outline: 3px solid #2F9E44; /* success color for high contrast */
+  outline-offset: 2px;
+}
+
+/* Desktop positioning */
+@media (min-width: 768px) {
+  .sos-fab {
+    top: 1.5rem;
+    bottom: auto;
+  }
+}
+
+/* Scrollbar styling for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FFF8F2;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #B94E2A;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #F4A261;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Screen reader only utility class */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Skip to main content link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #2F9E44;
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  z-index: 10000;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
