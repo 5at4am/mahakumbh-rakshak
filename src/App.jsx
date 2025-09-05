@@ -5,6 +5,9 @@ import MapPage from './components/MapPage';
 import SOSPage from './components/SOSPage';
 import LostAndFoundPage from './components/LostAndFoundPage';
 import HomePage from './components/home/HomePage';
+import LoginPage from './components/auth/LoginPage';
+import RegisterPage from './components/auth/RegisterPage';
+import ProtectedRoute from './components/auth/ProtectedRoute';
 import { useActiveTab } from './hooks/useActiveTab';
 
 const NavbarWithRouting = () => {
@@ -43,7 +46,9 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/map" element={<MapPage />} />
         <Route path="/sos" element={<SOSPage />} />
-        <Route path="/missing" element={<LostAndFoundPage />} />
+        <Route path="/missing" element={<ProtectedRoute><LostAndFoundPage /></ProtectedRoute>} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
       </Routes>
     </div>
   );
