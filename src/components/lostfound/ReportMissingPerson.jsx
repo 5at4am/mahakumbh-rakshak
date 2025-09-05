@@ -7,7 +7,6 @@ const ReportMissingPerson = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // In a real app, you would send this data to a server
     alert(`Missing person report submitted!\nName: ${personName}\nDescription: ${description}\nContact: ${contactInfo}`);
     setPersonName('');
     setDescription('');

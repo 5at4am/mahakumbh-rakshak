@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-/* Reset and base styles */
 * {
   box-sizing: border-box;
 }
@@ -10,7 +9,6 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  /* Removed overflow: hidden to enable scrolling */
 }
 
 body {
@@ -26,17 +24,17 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 16px; /* Minimum 16px for body text on mobile */
+  font-size: 16px;
 }
 
 a {
   font-weight: 500;
-  color: #B94E2A; /* primary color */
+  color: #B94E2A;
   text-decoration: inherit;
 }
 
 a:hover {
-  color: #D7263D; /* danger color */
+  color: #D7263D;
 }
 
 h1 {
@@ -51,66 +49,50 @@ button {
   font-size: 1.1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #B94E2A; /* primary color */
+  background-color: #B94E2A;
   color: white;
   cursor: pointer;
   transition: all 0.25s;
 }
 
 button:hover {
-  background-color: #D7263D; /* danger color */
+  background-color: #D7263D;
   transform: translateY(-2px);
 }
 
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-  outline-color: #2F9E44; /* success color for high contrast */
+  outline-color: #2F9E44;
 }
 
-/* Ensure the root element takes full height but allows scrolling */
 #root {
   min-height: 100vh;
   width: 100%;
 }
 
-/* Fix for map container */
 .map-container {
   height: 100%;
   width: 100%;
 }
 
-/* High contrast focus styles for accessibility */
 *:focus {
-  outline: 2px solid #2F9E44; /* success color */
+  outline: 2px solid #2F9E44;
   outline-offset: 2px;
 }
 
-/* Responsive typography */
-@media (max-width: 768px) {
-  body {
-    font-size: 16px;
-  }
-  
-  h1 {
-    font-size: 2rem;
-  }
-}
-
-/* Map overlay styles */
 .map-overlay-low {
-  background-color: rgba(47, 158, 68, 0.7); /* density.low with transparency */
+  background-color: rgba(47, 158, 68, 0.7);
 }
 
 .map-overlay-medium {
-  background-color: rgba(246, 200, 95, 0.7); /* density.medium with transparency */
+  background-color: rgba(246, 200, 95, 0.7);
 }
 
 .map-overlay-high {
-  background-color: rgba(215, 38, 61, 0.7); /* density.high with transparency */
+  background-color: rgba(215, 38, 61, 0.7);
 }
 
-/* SOS FAB button - sticky bottom-right on mobile; top-right on desktop */
 .sos-fab {
   position: fixed;
   bottom: 6rem;
@@ -118,7 +100,7 @@ button:focus-visible {
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
-  background-color: #D7263D; /* danger color */
+  background-color: #D7263D;
   color: white;
   display: flex;
   align-items: center;
@@ -131,16 +113,15 @@ button:focus-visible {
 }
 
 .sos-fab:hover {
-  background-color: #c01f36; /* danger color darker */
+  background-color: #c01f36;
   transform: scale(1.05);
 }
 
 .sos-fab:focus {
-  outline: 3px solid #2F9E44; /* success color for high contrast */
+  outline: 3px solid #2F9E44;
   outline-offset: 2px;
 }
 
-/* Desktop positioning */
 @media (min-width: 768px) {
   .sos-fab {
     top: 1.5rem;
@@ -148,7 +129,6 @@ button:focus-visible {
   }
 }
 
-/* Scrollbar styling for webkit browsers */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -166,7 +146,6 @@ button:focus-visible {
   background: #F4A261;
 }
 
-/* Accessibility improvements */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;
@@ -175,7 +154,6 @@ button:focus-visible {
   }
 }
 
-/* Screen reader only utility class */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -188,7 +166,6 @@ button:focus-visible {
   border-width: 0;
 }
 
-/* Skip to main content link */
 .skip-link {
   position: absolute;
   top: -40px;

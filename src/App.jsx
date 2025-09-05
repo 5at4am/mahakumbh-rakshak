@@ -7,7 +7,6 @@ import LostAndFoundPage from './components/LostAndFoundPage';
 import HomePage from './components/home/HomePage';
 import { useActiveTab } from './hooks/useActiveTab';
 
-// Navbar component with routing
 const NavbarWithRouting = () => {
   const activeTab = useActiveTab();
   const navigate = useNavigate();

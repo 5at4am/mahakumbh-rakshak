@@ -1,60 +1,88 @@
-/* Gallery Component Styles */
-
 .gallery-container {
-  margin: 2rem 0;
+  margin: 3rem 0;
+  padding: 0 1rem;
+
 }
 
 .gallery-title {
   text-align: center;
   font-size: 2.5rem;
-  font-weight: bold;
+  font-weight: 800;
   color: #213547;
   margin-bottom: 1rem;
+  letter-spacing: -0.025em;
 }
 
 .gallery-subtitle {
   text-align: center;
   color: #6b7280;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
   font-size: 1.1rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* Styles for react-slick slider */
 .slick-slider {
-  padding: 0 20px; /* Add some padding to the sides for arrows */
+  padding: 0 40px;
 }
 
 .slick-prev, .slick-next {
-  z-index: 1; /* Ensure arrows are above slides */
+  z-index: 1;
+  width: 40px;
+  height: 40px;
 }
 
 .slick-prev:before, .slick-next:before {
-  color: black; /* Color of the arrows */
-  font-size: 40px; /* Size of the arrows */
+  color: #B94E2A;
+  font-size: 30px;
+  opacity: 0.8;
+}
+
+.slick-prev:hover:before, .slick-next:hover:before {
+  opacity: 1;
+  color: #D7263D;
+}
+
+.slick-prev {
+  left: 10px;
+}
+
+.slick-next {
+  right: 10px;
+}
+
+.slick-dots {
+  bottom: -40px;
 }
 
 .slick-dots li button:before {
-  color: #6b7280; /* Color of the dots */
+  color: #D1D5DB;
+  font-size: 10px;
 }
 
 .slick-dots li.slick-active button:before {
-  color: #213547; /* Color of active dot */
+  color: #B94E2A;
+  opacity: 1;
 }
 
 .gallery-item {
-  border-radius: 1rem;
+
+  border-radius: 1.25rem;
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   background: white;
-  margin: 20px; /* Increased margin */
-  display: flex; /* Added for consistent height */
-  flex-direction: column; /* Added for consistent height */
+  margin: 0 4px; /* 8px total space between cards */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  
 }
 
 .gallery-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
 }
 
 .gallery-image {
@@ -62,37 +90,87 @@
   height: 200px;
   object-fit: cover;
   display: block;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-image {
+  transform: scale(1.05);
 }
 
 .gallery-caption {
-  padding: 1rem;
+  padding: 1.25rem 1rem;
   text-align: center;
-  min-height: 80px; /* Example min-height, adjust as needed */
-  flex-grow: 1; /* Allow caption to grow and fill space */
-  display: flex; /* For vertical centering if needed */
-  flex-direction: column; /* For vertical centering if needed */
-  justify-content: center; /* For vertical centering if needed */
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #FFF8F2;
+  min-height: 120px;
 }
 
 .gallery-caption h3 {
   margin: 0 0 0.5rem 0;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   color: #213547;
+  font-weight: 600;
 }
 
 .gallery-caption p {
   margin: 0;
   color: #6b7280;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
 
 /* Responsive adjustments */
+@media (max-width: 1024px) {
+  .gallery-image {
+    height: 180px;
+  }
+}
+
 @media (max-width: 768px) {
+  .gallery-container {
+    margin: 2rem 0;
+  }
+  
   .gallery-title {
     font-size: 2rem;
+  }
+  
+  .gallery-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .gallery-item {
+    margin: 0 4px;
+  }
+  
+  .slick-slider {
+    padding: 0 20px;
   }
 }
 
 @media (max-width: 480px) {
-  /* No specific grid styles needed as react-slick handles responsiveness */
+  .gallery-title {
+    font-size: 1.75rem;
+  }
+  
+  .gallery-item {
+    margin: 0 4px;
+  }
+  
+  .gallery-caption {
+    padding: 1rem;
+    min-height: 100px;
+  }
+  
+  .gallery-caption h3 {
+    font-size: 1.1rem;
+  }
+  
+  .gallery-caption p {
+    font-size: 0.9rem;
+  }
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Navbar = ({ activeTab, setActiveTab }) => {
+  void setActiveTab;
   const navigate = useNavigate();
   
   const navItems = [
@@ -32,7 +33,6 @@ const Navbar = ({ activeTab, setActiveTab }) => {
 
   return (
     <>
-      {/* Desktop Navbar */}
       <nav className="hidden md:flex bg-background shadow-md py-4 px-6 mx-0 mt-0 w-full">
         <div className="flex justify-between items-center w-full max-w-6xl mx-auto">
           <div className="text-2xl font-bold text-primary">Ujjain Kumbh</div>
@@ -54,7 +54,6 @@ const Navbar = ({ activeTab, setActiveTab }) => {
         </div>
       </nav>
 
-      {/* Mobile Bottom Bar */}
       <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-background/card border-t border-gray-200 shadow-lg z-[1001]">
         <div className="grid grid-cols-4">
           {navItems.map((item) => (
