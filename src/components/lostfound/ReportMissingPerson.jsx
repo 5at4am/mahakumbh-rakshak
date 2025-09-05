@@ -1,16 +1,37 @@
 import React, { useState } from 'react';
+import { supabase } from '../../supabaseClient';
 
 const ReportMissingPerson = () => {
   const [personName, setPersonName] = useState('');
+  const [age, setAge] = useState('');
   const [description, setDescription] = useState('');
+  const [lastKnownLocation, setLastKnownLocation] = useState('');
   const [contactInfo, setContactInfo] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert(`Missing person report submitted!\nName: ${personName}\nDescription: ${description}\nContact: ${contactInfo}`);
-    setPersonName('');
-    setDescription('');
-    setContactInfo('');
+    const { data, error } = await supabase
+      .from('missing_persons')
+      .insert([
+        { 
+          name: personName, 
+          age: age, 
+          description: description, 
+          last_known_location: lastKnownLocation, 
+          contact_info: contactInfo 
+        },
+      ]);
+
+    if (error) {
+      alert('Error reporting missing person: ' + error.message);
+    } else {
+      alert('Missing person reported successfully!');
+      setPersonName('');
+      setAge('');
+      setDescription('');
+      setLastKnownLocation('');
+      setContactInfo('');
+    }
   };
 
   return (
@@ -32,6 +53,8 @@ const ReportMissingPerson = () => {
           <label className="block text-text/primary mb-1 font-medium">Age</label>
           <input 
             type="number" 
+            value={age}
+            onChange={(e) => setAge(e.target.value)}
             className="w-full px-3 py-2 border border-gray-300 rounded-lg bg-background/card text-text/primary focus:ring-2 focus:ring-primary focus:border-transparent"
             placeholder="Age of the missing person"
           />
@@ -51,6 +74,8 @@ const ReportMissingPerson = () => {
           <label className="block text-text/primary mb-1 font-medium">Last Known Location</label>
           <input 
             type="text" 
+            value={lastKnownLocation}
+            onChange={(e) => setLastKnownLocation(e.target.value)}
             className="w-full px-3 py-2 border border-gray-300 rounded-lg bg-background/card text-text/primary focus:ring-2 focus:ring-primary focus:border-transparent"
             placeholder="Where was the person last seen in Ujjain?"
           />
