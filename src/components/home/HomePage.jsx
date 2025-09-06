@@ -8,6 +8,7 @@ import ServicesSection from './ServicesSection';
 const HomePage = () => {
   return (
     <main id="main-content" className="pt-6 pb-24 md:pt-24 px-4 max-w-6xl mx-auto w-full">
+      
       <HeroSection />
       <KeyInformationCards />
       <AboutSection />

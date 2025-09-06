@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { supabase } from '../../supabaseClient';
+import { useAuth } from '../../contexts/AuthContext';
 
 const MissingPersonsList = () => {
   const [missingPersons, setMissingPersons] = useState([]);
+  const { user } = useAuth();
 
   useEffect(() => {
+    console.log('Current user in MissingPersonsList:', user);
     fetchMissingPersons();
-  }, []);
+  }, [user]);
 
   const fetchMissingPersons = async () => {
     const { data, error } = await supabase

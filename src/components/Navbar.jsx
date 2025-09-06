@@ -22,7 +22,10 @@ const Navbar = ({ activeTab, setActiveTab }) => {
     <>
       <nav className="hidden md:flex bg-background shadow-md py-4 px-6 mx-0 mt-0 w-full">
         <div className="flex justify-between items-center w-full max-w-6xl mx-auto">
-          <div className="text-2xl font-bold text-primary">Ujjain Kumbh</div>
+          <div className="flex items-center space-x-3">
+            <img src="/img/img11.1.png" alt="Mahakumbh Logo" className="h-10 w-10 rounded-full object-contain" />
+            <div className="text-2xl font-bold text-primary">Ujjain Mahakumbh</div>
+          </div>
           <div className="flex items-center space-x-8">
             {navItems.map((item) => (
               <button

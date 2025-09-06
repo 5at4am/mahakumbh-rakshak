@@ -2,7 +2,9 @@ import React from 'react';
 
 const HeroDecorations = () => {
   return (
+    
     <div className="absolute top-0 left-0 w-full h-full opacity-100">
+      
       <div className="absolute top-4 left-4 w-24 h-24 rounded-full overflow-hidden">
         <img 
           src="/img/img10.png" 
